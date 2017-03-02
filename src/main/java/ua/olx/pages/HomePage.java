@@ -3,8 +3,12 @@ package ua.olx.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class HomePage extends AbstractBasePage {
+
+    protected final static Logger LOG = LoggerFactory.getLogger(HomePage.class.getName());
 
     private final static String URL = "https://www.olx.ua/";
 

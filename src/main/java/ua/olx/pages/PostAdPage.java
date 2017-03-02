@@ -3,10 +3,14 @@ package ua.olx.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ua.olx.pages.fragments.advertisement.AdvertisementDetailsFragment;
 import ua.olx.pages.fragments.advertisement.ContactDetailsFragment;
 
-public class PostAd extends AbstractBasePage {
+public class PostAdPage extends AbstractBasePage {
+
+    protected final static Logger LOG = LoggerFactory.getLogger(PostAdPage.class.getName());
 
     @FindBy(id = "save")
     private WebElement saveButton;
@@ -17,7 +21,7 @@ public class PostAd extends AbstractBasePage {
     private AdvertisementDetailsFragment advertisementDetailsFragment;
     private ContactDetailsFragment contactDetailsFragment;
 
-    public PostAd(WebDriver driver) {
+    public PostAdPage(WebDriver driver) {
         super(driver);
         advertisementDetailsFragment = new AdvertisementDetailsFragment(driver);
         contactDetailsFragment = new ContactDetailsFragment(driver);

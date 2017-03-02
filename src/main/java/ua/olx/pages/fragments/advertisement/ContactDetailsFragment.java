@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ua.olx.pages.AbstractBasePage;
 
-public class ContactDetailsFragment extends AbstractBasePage{
+public class ContactDetailsFragment extends AbstractBasePage {
 
     @FindBy(id = "mapAddress")
     private WebElement addressInput;
@@ -33,5 +33,4 @@ public class ContactDetailsFragment extends AbstractBasePage{
     public void inputName(String name) {
         setValue(nameInput, name);
     }
-
 }

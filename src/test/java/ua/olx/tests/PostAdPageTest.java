@@ -1,17 +1,15 @@
 package ua.olx.tests;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 import ua.olx.pages.HomePage;
 import ua.olx.pages.LoginPage;
-import ua.olx.pages.PostAd;
+import ua.olx.pages.PostAdPage;
 import ua.olx.pages.AdConfirmationPage;
 
-public class PostAdTest extends AbstractBaseTest {
+public class PostAdPageTest extends AbstractBaseTest {
 
-    private final static String USER_NAME = "shcherbyna.ira";
     private final static String EMAIL = "shcherbyna.ira@gmail.com";
     private final static String PASSWORD = "password";
 
@@ -34,13 +32,13 @@ public class PostAdTest extends AbstractBaseTest {
 
     private HomePage homePage;
     private LoginPage loginPage;
-    private PostAd postAd;
+    private PostAdPage postAdPage;
     private AdConfirmationPage adConfirmationPage;
 
-    public PostAdTest() {
+    public PostAdPageTest() {
         homePage = new HomePage(driver);
         loginPage = new LoginPage(driver);
-        postAd = new PostAd(driver);
+        postAdPage = new PostAdPage(driver);
         adConfirmationPage = new AdConfirmationPage(driver);
     }
 
@@ -50,13 +48,12 @@ public class PostAdTest extends AbstractBaseTest {
         homePage.clickAccountLink();
 
         loginPage.login(EMAIL, PASSWORD);
-        assertTrue(homePage.isLoginSuccess(USER_NAME));
 
         homePage.clickPostNewAdLink();
 
-        postAd.setAdvertisementDetails(TITLE, CATEGORY, SUB_CATEGORY, PRICE, BREED, IS_BUSINESS, DESCRIPTION);
-        postAd.setContactDetailsFragment(ADDRESS, REGION, DISTRICT, NAME);
-        postAd.clickSaveButton();
+        postAdPage.setAdvertisementDetails(TITLE, CATEGORY, SUB_CATEGORY, PRICE, BREED, IS_BUSINESS, DESCRIPTION);
+        postAdPage.setContactDetailsFragment(ADDRESS, REGION, DISTRICT, NAME);
+        postAdPage.clickSaveButton();
 
         assertEquals("Ваше объявление принято!", adConfirmationPage.getMessage());
         assertEquals(TITLE, adConfirmationPage.getPostedAdDetails());

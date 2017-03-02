@@ -7,7 +7,9 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.safari.SafariDriver;
 
-public class BrowserFactory {
+import java.util.LinkedList;
+
+public class BrowserFactory{
 
     private static final String BROWSER_PROPERTY_KEY = "browser";
 
